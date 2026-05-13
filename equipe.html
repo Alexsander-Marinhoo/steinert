@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "outline-variant": "#c5c5d4",
+            "error": "#ba1a1a",
+            "secondary-fixed-dim": "#b7c7e9",
+            "surface": "#f8f9fa",
+            "primary-container": "#002a86",
+            "on-secondary-fixed-variant": "#384763",
+            "on-tertiary-fixed-variant": "#7f2a0f",
+            "surface-dim": "#d9dadb",
+            "outline": "#757683",
+            "on-tertiary-container": "#ed7c5b",
+            "surface-bright": "#f8f9fa",
+            "inverse-primary": "#b6c4ff",
+            "surface-variant": "#e1e3e4",
+            "primary-fixed-dim": "#b6c4ff",
+            "tertiary-fixed-dim": "#ffb5a0",
+            "on-surface-variant": "#444652",
+            "secondary": "#505f7c",
+            "on-secondary-fixed": "#0b1b35",
+            "surface-container-low": "#f3f4f5",
+            "on-primary": "#ffffff",
+            "inverse-on-surface": "#f0f1f2",
+            "on-tertiary-fixed": "#3b0900",
+            "surface-container-lowest": "#ffffff",
+            "surface-container-highest": "#e1e3e4",
+            "secondary-container": "#cbdafd",
+            "inverse-surface": "#2e3132",
+            "on-secondary": "#ffffff",
+            "on-secondary-container": "#505f7d",
+            "on-error-container": "#93000a",
+            "on-background": "#191c1d",
+            "on-primary-container": "#7d97f6",
+            "on-error": "#ffffff",
+            "tertiary-container": "#651700",
+            "on-tertiary": "#ffffff",
+            "primary": "#001856",
+            "surface-container-high": "#e7e8e9",
+            "error-container": "#ffdad6",
+            "surface-tint": "#3d58b3",
+            "secondary-fixed": "#d7e3ff",
+            "on-surface": "#191c1d",
+            "surface-container": "#edeeef",
+            "background": "#f8f9fa",
+            "on-primary-fixed": "#001550",
+            "primary-fixed": "#dce1ff",
+            "tertiary": "#400b00",
+            "on-primary-fixed-variant": "#213f9a",
+            "tertiary-fixed": "#ffdbd1"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "9999px"
+          },
+          "fontFamily": {
+            "headline": ["Manrope"],
+            "body": ["Inter"],
+            "label": ["Inter"]
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+
+    .glass-nav {
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    .text-editorial-gradient {
+      background: linear-gradient(to bottom, #001856, #002a86);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  </style>
+  <style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+
+<body class="bg-surface font-body text-on-surface antialiased overflow-x-hidden">
+  <!-- TopAppBar -->
+  <header class="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md shadow-sm dark:shadow-none">
+    <div class="max-w-7xl mx-auto flex justify-between items-center px-8 py-4">
+      <a class=" flex items-center text-2xl font-bold tracking-tighter text-blue-900 dark:text-white" href="#">
+        <img class="w-14 h-14" src="./imgs/logo.webp" />Clínica Steinert</a>
+      <nav class="hidden md:flex items-center gap-8">
+        <a class="text-sm font-medium Inter tracking-wide text-slate-500 dark:text-slate-400 hover:text-blue-700 transition-colors"
+          href="index.html">Início</a>
+        <a class="text-sm font-medium Inter tracking-wide text-slate-500 dark:text-slate-400 hover:text-blue-700 transition-colors"
+          href="servicos.html">Serviços</a>
+        <a class="text-sm font-medium Inter tracking-wide text-blue-900 dark:text-white border-b-2 border-blue-900 dark:border-blue-400 pb-1"
+          href="equipe.html">Equipe</a>
+        <a class="text-sm font-medium Inter tracking-wide text-slate-500 dark:text-slate-400 hover:text-blue-700 transition-colors"
+          href="contato.html">Contato</a>
+      </nav>
+      <button onclick="window.location.href='agendamento.html'"
+        class="hidden md:block bg-primary text-on-primary px-6 py-2.5 rounded-full font-semibold text-sm hover:opacity-90 transition-all duration-300 active:scale-95">
+        Agendar Consulta
+      </button>
+      <button id="mobile-menu-btn" class="md:hidden text-primary p-2 focus:outline-none">
+        <span class="material-symbols-outlined text-3xl">menu</span>
+      </button>
+    </div>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu"
+      class="absolute top-full left-0 w-full bg-white dark:bg-slate-900 shadow-lg md:hidden flex flex-col px-8 overflow-hidden max-h-0 transition-all duration-300 ease-in-out">
+      <div class="py-6 flex flex-col gap-6">
+        <nav class="flex flex-col gap-4 text-lg border-t border-slate-100 dark:border-slate-800 pt-4">
+          <a href="index.html"
+            class="font-medium text-blue-900 dark:text-white pb-2 border-b border-slate-100 dark:border-slate-800">Início</a>
+          <a href="servicos.html"
+            class="font-medium text-slate-600 dark:text-slate-300 pb-2 border-b border-slate-100 dark:border-slate-800">Serviços</a>
+          <a href="equipe.html"
+            class="font-medium text-slate-600 dark:text-slate-300 pb-2 border-b border-slate-100 dark:border-slate-800">Equipe</a>
+          <a href="contato.html"
+            class="font-medium text-slate-600 dark:text-slate-300 pb-2 border-b border-slate-100 dark:border-slate-800">Contato</a>
+        </nav>
+        <button onclick="window.location.href='agendamento.html'"
+          class="w-full bg-primary text-on-primary px-6 py-3 rounded-full font-bold hover:opacity-90 transition-all shadow-md">
+          Agendar Consulta
+        </button>
+      </div>
+    </div>
+  </header>
+  <main class="pt-16 pb-32">
+    <!-- Hero Section -->
+    <section class="relative min-h-[618px] flex flex-col justify-center items-start px-8 md:px-24 py-20 bg-surface">
+      <div class="max-w-4xl">
+        <span class="text-primary tracking-[0.3em] uppercase text-xs font-semibold mb-6 block">Nosso Legado</span>
+        <h2 class="font-headline text-5xl md:text-8xl font-extrabold text-primary leading-tight mb-8">
+          Excelência em <br /><span class="italic font-light">cada Detalhe</span>
+        </h2>
+        <p class="text-on-surface-variant text-lg md:text-xl max-w-2xl font-light leading-relaxed">
+          Nossa curadoria clínica seleciona profissionais que unem a precisão técnica da odontologia moderna à
+          sensibilidade estética do design humano. Conheça as mentes por trás do seu novo sorriso.
+        </p>
+      </div>
+      <!-- Decorative Element -->
+      <div
+        class="absolute right-0 top-1/2 -translate-y-1/2 w-1/3 h-full bg-surface-container-low -z-10 hidden lg:block">
+      </div>
+    </section>
+    <!-- Specialists Section (Asymmetric Layout) -->
+    <section class="px-8 md:px-24 space-y-32">
+      <!-- Dr. Ricardo Prata -->
+      <div class="flex flex-col md:flex-row gap-12 items-center">
+        <div class="w-full md:w-5/12 aspect-[3/4] rounded-xl overflow-hidden shadow-2xl shadow-primary/5">
+          <img alt="Dr. Ricardo Prata"
+            class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+            data-alt="High-end black and white editorial portrait of a senior male dentist in a crisp white lab coat looking confident"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCm7WmlPVpnQoK9W9t2XTfAaq0ChOhgCRD4QJExe8EyEhW3qJSkVdlkSLcMTdlc8NAayXnw_SzpIMW7tUW47XcT9q9mtsGLh5gRolZmXJklmI_ZTEdj4pl5tbn4PLeYjB47f6PssmoCAS7R8b_kXvCVZlrGrQqKkTLXhax5EGnHEXF-ScTiobnk6NUohfiyizWwMhaqqxVZAeZ3Pncbl62upt87ZUQwtpEVEsGPwJFn0cwHilzQHHcHe1k8eI7DKUglWY-Y9Bkt-1A" />
+        </div>
+        <div class="w-full md:w-6/12 flex flex-col justify-center">
+          <span class="text-primary/60 font-headline text-sm tracking-widest uppercase mb-4">Diretor Clínico &amp;
+            Implantes</span>
+          <h3 class="font-headline text-4xl md:text-5xl font-bold text-primary mb-6">Dr. Ricardo Prata</h3>
+          <div class="w-12 h-0.5 bg-primary-container mb-8"></div>
+          <p class="text-on-surface-variant text-lg leading-relaxed mb-8 font-light italic">
+            "A liderança na odontologia não é sobre procedimentos, mas sobre a orquestração do bem-estar. Cada sorriso
+            que reconstruímos é uma obra de arte técnica e emocional."
+          </p>
+          <p class="text-on-surface-variant leading-relaxed">
+            Com mais de 20 anos de experiência internacional, Dr. Prata é pioneiro em técnicas de implantes de carga
+            imediata e reabilitação oral completa, unindo tecnologia de ponta a um olhar humano e acolhedor.
+          </p>
+        </div>
+      </div>
+      <!-- Dra. Helena Souza -->
+      <div class="flex flex-col md:flex-row-reverse gap-12 items-center">
+        <div class="w-full md:w-5/12 aspect-[3/4] rounded-xl overflow-hidden shadow-2xl shadow-primary/5">
+          <img alt="Dra. Helena Souza" class="w-full h-full object-cover"
+            data-alt="Elegant portrait of a female dentist smiling warmly in a bright, minimalist modern dental studio"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1281EUXKBXO41LIRpk9zsExbRB-ScA-9Vf6OjhfXsf_rKoR0HAX3wyI4TuacgKKQbmOSbQUObdobVpsjExOy0SH98nVKuLnTysFnQRPQghsmIggXJSF_x4aCFu3bsRy035SPJ8Qw98LdsgvTq4rc_7JAxfDWWTgmlcI8AZ6kFNrzP8NC5aolmwtCvuN33KH9PG1xTJ6tByjkL3X2TSGaSRCjwdjs8FV5wcaaScHrR7Rv6eLEujSIpJOxL3W7rmN0JSc8qmXP5O74" />
+        </div>
+        <div class="w-full md:w-6/12 flex flex-col justify-center">
+          <span class="text-primary/60 font-headline text-sm tracking-widest uppercase mb-4">Especialista em
+            Ortodontia</span>
+          <h3 class="font-headline text-4xl md:text-5xl font-bold text-primary mb-6">Dra. Helena Souza</h3>
+          <div class="w-12 h-0.5 bg-primary-container mb-8"></div>
+          <p class="text-on-surface-variant text-lg leading-relaxed mb-8 font-light">
+            Referência em alinhadores invisíveis e ortodontia estética, Dra. Helena transforma o percurso do tratamento
+            em uma experiência invisível e confortável.
+          </p>
+          <ul class="space-y-4">
+            <li class="flex items-center gap-3 text-primary">
+              <span class="material-symbols-outlined text-[18px]">check_circle</span>
+              <span class="text-on-surface font-medium">Invisalign Top Doctor Platinum</span>
+            </li>
+            <li class="flex items-center gap-3 text-primary">
+              <span class="material-symbols-outlined text-[18px]">check_circle</span>
+              <span class="text-on-surface font-medium">Planejamento Digital 3D</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- Dr. André Martins -->
+      <div class="bg-surface-container-low p-12 md:p-24 rounded-[3rem] flex flex-col md:flex-row gap-16 items-center">
+        <div class="w-full md:w-1/2">
+          <span class="text-primary/60 font-headline text-sm tracking-widest uppercase mb-4 block">Estética &amp;
+            Clareamento</span>
+          <h3 class="font-headline text-4xl md:text-5xl font-bold text-primary mb-8">Dr. André Martins</h3>
+          <p class="text-on-surface-variant text-lg leading-relaxed mb-10 font-light">
+            Especialista em criar sorrisos que parecem naturais. Sua precisão no clareamento e facetas de porcelana é o
+            que define o padrão de beleza da Dental Curadoria.
+          </p>
+          <button
+            class="bg-gradient-to-r from-primary to-primary-container text-on-primary px-10 py-5 rounded-full font-semibold shadow-xl shadow-primary/20 hover:-translate-y-1 transition-all flex items-center gap-3">
+            Agendar com Dr. André
+            <span class="material-symbols-outlined">arrow_forward</span>
+          </button>
+        </div>
+        <div class="w-full md:w-1/2 aspect-square md:aspect-auto md:h-[500px] overflow-hidden rounded-3xl relative">
+          <img alt="Dr. André Martins" class="w-full h-full object-cover"
+            data-alt="Modern close-up of a male specialist looking at a dental scan in a high-tech lab with blue ambient lighting"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmikhc_EfT7EZyW7Ghh5bZjvv-FTsWIGy7ha_Wl4da5Eg3zcY273uGnTvHBOr1f15AclFWMeUHtS_vY9zoizNPd7Gm7Jl7Tk6hqp9JIVTvq3gE1kzP4WG90DfNGpiUvSgZseBFHsQon8RC-FJw6Tqfg8ASHFIsw6t_FAQ0OUXVpYaBiLSJoN4Rg9b4TqQyx8xrOTQK6jxyU8Bln0FKOe1hA7Cg_Y7oK21vWfT90QCLnREnoBTSZO_i20oAPKAUjBPjqPKJXaohyDc" />
+          <!-- Glass Badge -->
+          <div class="absolute bottom-6 right-6 glass-nav bg-white/40 p-6 rounded-2xl border border-white/20">
+            <p class="text-primary font-bold text-2xl">+500</p>
+            <p class="text-primary/80 text-xs uppercase tracking-tighter">Sorrisos Transformados</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Final CTA Section -->
+    <section class="mt-40 text-center px-8">
+      <div
+        class="max-w-3xl mx-auto py-24 bg-surface-container-lowest rounded-full border border-outline-variant/10 shadow-2xl shadow-primary/5">
+        <h4 class="font-headline text-3xl md:text-4xl font-bold text-primary mb-6">Pronto para sua melhor versão?</h4>
+        <p class="text-on-surface-variant mb-10 max-w-lg mx-auto font-light">
+          Agende uma avaliação inicial com nossa curadoria e descubra o plano ideal para o seu sorriso.
+        </p>
+        <button onclick="window.location.href='agendamento.html'"
+          class="bg-primary text-on-primary px-12 py-5 rounded-full font-bold hover:bg-primary-container transition-colors shadow-lg">
+          Agendar Consulta
+        </button>
+      </div>
+    </section>
+  </main>
+  <!-- Footer -->
+
+  <!-- BottomNavBar (Mobile Only) -->
+  <nav
+    class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center pt-2 pb-6 px-4 bg-white/90 dark:bg-slate-950/90 backdrop-blur-lg shadow-[0_-4px_20px_rgba(0,24,86,0.06)] z-50 rounded-t-3xl">
+    <a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 transition-all tap-highlight-none"
+      href="#">
+      <span class="material-symbols-outlined">home</span>
+      <span class="font-inter text-[11px] font-medium uppercase tracking-tighter">Início</span>
+    </a>
+    <a class="flex flex-col items-center justify-center text-blue-900 dark:text-blue-200 bg-blue-50/50 dark:bg-blue-900/30 rounded-xl px-4 py-1 transition-all tap-highlight-none"
+      href="#">
+      <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">groups</span>
+      <span class="font-inter text-[11px] font-medium uppercase tracking-tighter">Especialistas</span>
+    </a>
+    <a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 transition-all tap-highlight-none"
+      href="#">
+      <span class="material-symbols-outlined">event</span>
+      <span class="font-inter text-[11px] font-medium uppercase tracking-tighter">Agendar</span>
+    </a>
+    <a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 transition-all tap-highlight-none"
+      href="#">
+      <span class="material-symbols-outlined">location_on</span>
+      <span class="font-inter text-[11px] font-medium uppercase tracking-tighter">Clínica</span>
+    </a>
+  </nav>
+  <footer class="bg-slate-50 dark:bg-slate-950 w-full py-12">
+    <div class="max-w-7xl mx-auto px-8 grid grid-cols-1 md:grid-cols-3 gap-12">
+      <div class="col-span-1 md:col-span-1">
+        <span class="text-xl font-black text-blue-900 dark:text-white block mb-6">Clínica Steinert</span>
+        <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Referência em odontologia de alta
+          performance e estética avançada.</p>
+      </div>
+      <div>
+        <h4 class="font-bold Manrope text-blue-900 mb-6">Navegação</h4>
+        <ul class="space-y-4">
+          <li><a
+              class="text-sm Inter text-slate-600 dark:text-slate-400 hover:text-blue-700 dark:hover:text-blue-300 underline-offset-4 hover:underline transition-opacity"
+              href="index.html">Início</a></li>
+          <li><a
+              class="text-sm Inter text-slate-600 dark:text-slate-400 hover:text-blue-700 dark:hover:text-blue-300 underline-offset-4 hover:underline transition-opacity"
+              href="servicos.html">Serviços</a></li>
+          <li><a
+              class="text-sm Inter text-slate-600 dark:text-slate-400 hover:text-blue-700 dark:hover:text-blue-300 underline-offset-4 hover:underline transition-opacity"
+              href="equipe.html">Equipe</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="font-bold Manrope text-blue-900 mb-6">Siga-nos</h4>
+        <div class="flex flex-col gap-4">
+          <a class="flex items-center gap-3 text-sm font-medium Inter text-slate-600 dark:text-slate-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
+            href="https://wa.me/5511999999999" target="_blank">
+            <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z" />
+            </svg>
+            WhatsApp
+          </a>
+          <a class="flex items-center gap-3 text-sm font-medium Inter text-slate-600 dark:text-slate-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
+            href="https://instagram.com" target="_blank">
+            <svg class="w-5 h-5 text-pink-600" fill="currentColor" viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z" />
+            </svg>
+            Instagram
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="max-w-7xl mx-auto px-8 mt-12 pt-8 border-t border-slate-200">
+      <p class="text-sm Inter text-slate-600 dark:text-slate-400 text-center">© 2026 Clínica Steinert. Todos os direitos
+        reservados. Praça Dr. Roberto Andraus, 11 - Sala 6 / 5° Andar - Cidade Ocian</p>
+    </div>
+  </footer>
+  <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
+  <script>
+    const lenis = new Lenis()
+
+    function raf(time) {
+      lenis.raf(time)
+      requestAnimationFrame(raf)
+    }
+
+    requestAnimationFrame(raf)
+
+    // Smooth scroll para links internos
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          lenis.scrollTo(targetElement);
+        }
+      });
+    });
+
+    // Script do Menu Mobile
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileMenuIcon = mobileMenuBtn ? mobileMenuBtn.querySelector('.material-symbols-outlined') : null;
+
+    if (mobileMenuBtn && mobileMenu) {
+      mobileMenuBtn.addEventListener('click', () => {
+        const isOpen = mobileMenu.classList.contains('max-h-[500px]');
+        if (isOpen) {
+          mobileMenu.classList.remove('max-h-[500px]');
+          mobileMenu.classList.add('max-h-0');
+          if (mobileMenuIcon) mobileMenuIcon.textContent = 'menu';
+        } else {
+          mobileMenu.classList.remove('max-h-0');
+          mobileMenu.classList.add('max-h-[500px]');
+          if (mobileMenuIcon) mobileMenuIcon.textContent = 'close';
+        }
+      });
+    }
+  </script>
+</body>
+
+</html>

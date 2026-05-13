@@ -1,0 +1,20 @@
+{
+  "name": "projects/5913276416643036160",
+  "projectId": "5913276416643036160",
+  "title": "Site Odontológico Moderno",
+  "deviceType": "DESKTOP",
+  "designTheme": {
+    "colorMode": "LIGHT",
+    "font": "MANROPE",
+    "roundness": "ROUND_FOUR",
+    "customColor": "#002A86"
+  },
+  "screens": {
+    "index": {
+      "id": "30fe643dc74a4c1490a311af5b089f22",
+      "sourceScreen": "projects/5913276416643036160/screens/30fe643dc74a4c1490a311af5b089f22",
+      "width": 1280,
+      "height": 5006
+    }
+  }
+}

@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Agendamento | DentalCuradoria</title>
+<!-- Google Fonts: Manrope & Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Manrope:wght@700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-container-low": "#f3f4f5",
+                      "outline": "#757683",
+                      "on-background": "#191c1d",
+                      "background": "#f8f9fa",
+                      "outline-variant": "#c5c5d4",
+                      "on-tertiary": "#ffffff",
+                      "error-container": "#ffdad6",
+                      "on-primary-fixed-variant": "#213f9a",
+                      "surface-variant": "#e1e3e4",
+                      "secondary-fixed": "#d7e3ff",
+                      "inverse-on-surface": "#f0f1f2",
+                      "secondary": "#505f7c",
+                      "tertiary-fixed": "#ffdbd1",
+                      "surface": "#f8f9fa",
+                      "surface-dim": "#d9dadb",
+                      "primary-fixed-dim": "#b6c4ff",
+                      "error": "#ba1a1a",
+                      "tertiary-fixed-dim": "#ffb5a0",
+                      "surface-bright": "#f8f9fa",
+                      "inverse-primary": "#b6c4ff",
+                      "tertiary": "#400b00",
+                      "on-primary": "#ffffff",
+                      "primary-container": "#002a86",
+                      "on-secondary-fixed-variant": "#384763",
+                      "on-tertiary-fixed": "#3b0900",
+                      "on-primary-container": "#7d97f6",
+                      "on-tertiary-fixed-variant": "#7f2a0f",
+                      "on-secondary-container": "#505f7d",
+                      "surface-container-highest": "#e1e3e4",
+                      "surface-tint": "#3d58b3",
+                      "on-secondary": "#ffffff",
+                      "on-primary-fixed": "#001550",
+                      "surface-container-lowest": "#ffffff",
+                      "primary-fixed": "#dce1ff",
+                      "inverse-surface": "#2e3132",
+                      "secondary-fixed-dim": "#b7c7e9",
+                      "on-error": "#ffffff",
+                      "on-surface": "#191c1d",
+                      "on-surface-variant": "#444652",
+                      "on-secondary-fixed": "#0b1b35",
+                      "surface-container-high": "#e7e8e9",
+                      "secondary-container": "#cbdafd",
+                      "on-tertiary-container": "#ed7c5b",
+                      "surface-container": "#edeeef",
+                      "tertiary-container": "#651700",
+                      "primary": "#001856",
+                      "on-error-container": "#93000a"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "fontFamily": {
+                      "headline": ["Manrope"],
+                      "body": ["Inter"],
+                      "label": ["Inter"]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8f9fa; }
+        h1, h2, h3 { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-nav {
+            background-color: rgba(248, 249, 250, 0.8);
+            backdrop-filter: blur(12px);
+        }
+        .shadow-ambient {
+            box-shadow: 0 20px 40px -15px rgba(0, 24, 86, 0.05);
+        }
+        .ghost-border {
+            border: 1px solid rgba(197, 197, 212, 0.2);
+        }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+    </style>
+</head>
+<body class="text-on-surface">
+<!-- Header / TopNavBar -->
+<header class="fixed top-0 w-full z-50 glass-nav shadow-ambient">
+<div class="flex justify-between items-center max-w-7xl mx-auto px-8 py-4">
+<a class="text-xl font-bold tracking-tighter text-[#001856] dark:text-white font-headline" href="/">
+                DentalCuradoria
+            </a>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-slate-600 font-medium tracking-tight hover:text-[#001856] transition-colors" href="#">Especialidades</a>
+<a class="text-slate-600 font-medium tracking-tight hover:text-[#001856] transition-colors" href="#">Tecnologia</a>
+<a class="text-slate-600 font-medium tracking-tight hover:text-[#001856] transition-colors" href="#">Unidades</a>
+<a class="text-[#001856] font-bold border-b-2 border-[#001856] pb-1 tracking-tight" href="#">Agendamento</a>
+</nav>
+<div class="flex items-center">
+<button class="bg-primary bg-gradient-to-r from-primary to-primary-container text-white px-6 py-2.5 rounded-full font-medium text-sm hover:scale-95 transition-transform shadow-lg shadow-primary/10">
+                    Falar com Consultor
+                </button>
+</div>
+</div>
+</header>
+<main class="pt-32 pb-20 overflow-x-hidden">
+<!-- Hero Section -->
+<section class="max-w-7xl mx-auto px-8 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+<div class="space-y-6">
+<span class="inline-block px-4 py-1 rounded-full bg-primary/5 text-primary text-xs font-semibold tracking-widest uppercase">Excelência e Cuidado</span>
+<h1 class="text-5xl md:text-6xl font-extrabold text-primary leading-tight">
+                    Agende sua <br/><span class="italic font-bold">Experiência</span> Clínica
+                </h1>
+<p class="text-on-surface-variant text-lg max-w-md leading-relaxed">
+                    Sua jornada para um sorriso saudável e estético começa aqui. Oferecemos uma curadoria completa de tratamentos odontológicos de alto padrão em um ambiente projetado para seu total conforto.
+                </p>
+<div class="flex items-center gap-4 pt-4">
+<div class="flex -space-x-3">
+<img class="w-10 h-10 rounded-full border-2 border-white object-cover" data-alt="professional portrait of a confident female dentist in a modern clinic setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEGwP2taEdTPakvf0Vndg_0Upync9-hU0qPbt3M3X-tWyFqaCXW_d-FePq0x7zpe1i-nXX0Wz6B624Few2DOSeJmajGeQu3eApD1xdtBp_9krWRZ689Ff2AFzWdHKKSUNeUt3HUUaPVymGBZ7A900XrlAQx_XLLNoHSOJeyM2vqz1Lvp5LDhgshx2ULvJNj_HUZk4hnr2nSvrjaDKjFcA-AtR-q2Ens8BYQK2zWxNkmgtMKly8oDrRy8z8F0QZo2AkPxnt6GchRrU"/>
+<img class="w-10 h-10 rounded-full border-2 border-white object-cover" data-alt="professional portrait of a male dentist with a gentle smile in a high-end medical environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDL3KaoPcuKbGGiN9w9KzoBZNsTp0KLZa487rdNY-QQgv1FoQurrrwi3pdEeCgq0n68s47t-t8JHoy7olZ1bKANN42JUsYdfhYg5YYZFOyWlFsX11C7dzE2AqSegMUp8rwnO80IrFlmjLWurde5eCTFherheY4zv6MCqUMoFIjhKrSSOFxzrafhP4YVvQpaN5CyYEDnxovkhI7JsBhg6lUtk7Hzj2-0b4gVYKrxl7p0FfbGY_MSub-nfpcel7D-Meh4e6QWOq33Ots"/>
+</div>
+<p class="text-sm text-on-surface-variant">Confiança de mais de <span class="text-primary font-bold">2.500 pacientes</span></p>
+</div>
+</div>
+<div class="relative">
+<div class="absolute -z-10 top-1/2 -right-20 w-[500px] h-[500px] bg-primary/5 rounded-full blur-3xl opacity-50"></div>
+<img alt="Consultório Dental Moderno" class="rounded-xl shadow-ambient w-full h-[500px] object-cover" data-alt="ultra-modern dental office interior with soft natural light, minimalist equipment, and a serene atmosphere with blurred clinical background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCaXi6x41jE_SHi4IWy-Mf4cYLikI20PTmKdoVGkN8SfkztVvD2oUhpZrvu4x3fUQrIyRRjJKcveTqSjWa4sxT2HCATbyDMbcc7TWITW2-RAPQVHLfDiQH9Oszf7-EzTI8A2VNErsNOz4Rn9s7uryGsisFk5wGE_C23yB25WiTLb4SZ3D2CGv-5ontl57CtCBKhXU6UxjP9DQH5cwNIKMKPxnV0snGwxAu3ihm2aDeioiUtLUc92nPxt7MKWIxd1b7eqO5hlgKi9IM"/>
+</div>
+</section>
+<!-- Form Section -->
+<section class="max-w-7xl mx-auto px-8 mt-24">
+<div class="bg-surface-container-high rounded-xl p-8 md:p-12 shadow-ambient relative overflow-hidden">
+<div class="relative z-10 grid grid-cols-1 lg:grid-cols-3 gap-12">
+<!-- Left: Info -->
+<div class="lg:col-span-1">
+<h2 class="text-3xl font-bold text-primary mb-6">Solicite um Horário</h2>
+<p class="text-on-surface-variant mb-8 leading-relaxed">
+                            Preencha os dados e nossa equipe de concierge entrará em contato em menos de 15 minutos para confirmar sua sessão.
+                        </p>
+<div class="space-y-6">
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary p-2 bg-white rounded-xl shadow-sm">calendar_today</span>
+<div>
+<h4 class="font-bold text-primary text-sm">Disponibilidade</h4>
+<p class="text-xs text-on-surface-variant">Segunda a Sexta: 08h - 20h</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary p-2 bg-white rounded-xl shadow-sm">verified_user</span>
+<div>
+<h4 class="font-bold text-primary text-sm">Atendimento VIP</h4>
+<p class="text-xs text-on-surface-variant">Suporte prioritário via WhatsApp</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Right: Form -->
+<div class="lg:col-span-2 bg-surface-container-lowest rounded-xl p-8 md:p-10 shadow-sm">
+<form class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="text-sm font-semibold text-primary block ml-1">Nome Completo</label>
+<input class="w-full bg-surface-container-high ghost-border rounded-lg px-4 py-3 focus:ring-1 focus:ring-primary outline-none transition-all placeholder:text-outline/50" placeholder="Como devemos chamá-lo?" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="text-sm font-semibold text-primary block ml-1">WhatsApp</label>
+<input class="w-full bg-surface-container-high ghost-border rounded-lg px-4 py-3 focus:ring-1 focus:ring-primary outline-none transition-all placeholder:text-outline/50" placeholder="(00) 00000-0000" type="tel"/>
+</div>
+<div class="space-y-2">
+<label class="text-sm font-semibold text-primary block ml-1">Especialidade Desejada</label>
+<select class="w-full bg-surface-container-high ghost-border rounded-lg px-4 py-3 focus:ring-1 focus:ring-primary outline-none transition-all appearance-none cursor-pointer">
+<option disabled="" selected="" value="">Selecione o tratamento</option>
+<option>Implantes &amp; Próteses</option>
+<option>Invisalign &amp; Ortodontia</option>
+<option>Estética &amp; Lentes de Contato</option>
+<option>Endodontia (Canal)</option>
+<option>Avaliação Geral</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="text-sm font-semibold text-primary block ml-1">Dia Preferencial</label>
+<input class="w-full bg-surface-container-high ghost-border rounded-lg px-4 py-3 focus:ring-1 focus:ring-primary outline-none transition-all" type="date"/>
+</div>
+<div class="space-y-2 md:col-span-2">
+<label class="text-sm font-semibold text-primary block ml-1">Horário de Preferência</label>
+<div class="grid grid-cols-3 gap-3">
+<button class="py-3 px-4 rounded-lg bg-surface-container-high ghost-border text-sm font-medium hover:bg-primary-container hover:text-white transition-colors" type="button">Manhã</button>
+<button class="py-3 px-4 rounded-lg bg-surface-container-high ghost-border text-sm font-medium hover:bg-primary-container hover:text-white transition-colors" type="button">Tarde</button>
+<button class="py-3 px-4 rounded-lg bg-surface-container-high ghost-border text-sm font-medium hover:bg-primary-container hover:text-white transition-colors" type="button">Noite</button>
+</div>
+</div>
+<div class="md:col-span-2 pt-6">
+<button class="w-full py-4 rounded-full bg-gradient-to-r from-primary to-primary-container text-white font-bold text-lg hover:shadow-xl hover:shadow-primary/20 hover:-translate-y-1 active:scale-95 transition-all" type="submit">
+                                    Solicitar Agendamento
+                                </button>
+<p class="text-center text-xs text-on-surface-variant mt-4">Ao clicar, você aceita nossos Termos de Privacidade.</p>
+</div>
+</form>
+</div>
+</div>
+<!-- Background Decorative -->
+<div class="absolute bottom-0 right-0 opacity-5 pointer-events-none translate-x-1/4 translate-y-1/4">
+<span class="material-symbols-outlined text-[300px]" data-weight="fill">dentistry</span>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-12 mt-20 bg-[#f8f9fa] dark:bg-slate-950">
+<div class="max-w-7xl mx-auto px-8 grid grid-cols-1 md:grid-cols-3 gap-12">
+<div>
+<h3 class="text-primary font-bold text-lg mb-6 font-headline">DentalCuradoria</h3>
+<p class="text-slate-500 text-sm leading-relaxed mb-6">
+                    Referência em odontologia de precisão e estética avançada. Elevando o padrão de cuidados bucais através da curadoria clínica.
+                </p>
+<div class="flex gap-4">
+<a class="w-8 h-8 flex items-center justify-center rounded-full bg-primary/5 text-primary hover:bg-primary hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined text-sm">public</span>
+</a>
+<a class="w-8 h-8 flex items-center justify-center rounded-full bg-primary/5 text-primary hover:bg-primary hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined text-sm">chat</span>
+</a>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-8">
+<div class="space-y-4">
+<h4 class="text-primary font-bold text-xs uppercase tracking-widest">Unidades</h4>
+<ul class="space-y-3">
+<li><a class="text-slate-500 text-sm hover:text-[#001856] transition-colors" href="#">São Paulo - Jardins</a></li>
+<li><a class="text-slate-500 text-sm hover:text-[#001856] transition-colors" href="#">Rio - Leblon</a></li>
+<li><a class="text-slate-500 text-sm hover:text-[#001856] transition-colors" href="#">Curitiba - Batel</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<h4 class="text-primary font-bold text-xs uppercase tracking-widest">Legal</h4>
+<ul class="space-y-3">
+<li><a class="text-slate-500 text-sm hover:text-[#001856] transition-colors" href="#">Privacidade</a></li>
+<li><a class="text-slate-500 text-sm hover:text-[#001856] transition-colors" href="#">Termos de Uso</a></li>
+<li><a class="text-slate-500 text-sm hover:text-[#001856] transition-colors" href="#">Responsabilidade Técnica</a></li>
+</ul>
+</div>
+</div>
+<div class="space-y-6">
+<h4 class="text-primary font-bold text-xs uppercase tracking-widest">Endereço Principal</h4>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-sm mt-1">location_on</span>
+<p class="text-slate-500 text-sm">Av. Brigadeiro Faria Lima, 4500<br/>Itaim Bibi, São Paulo - SP</p>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-sm mt-1">call</span>
+<p class="text-slate-500 text-sm">0800 555 9000</p>
+</div>
+</div>
+</div>
+<div class="max-w-7xl mx-auto px-8 pt-12 mt-12 border-t border-slate-200 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-slate-500 text-xs font-light tracking-wide">© 2024 Dental Curadoria Clínica. Todos os direitos reservados.</p>
+<div class="flex gap-6">
+<span class="text-xs text-slate-400 font-light">RT: Dr. Juliano Prata - CRO/SP 123456</span>
+</div>
+</div>
+</footer>
+</body></html>
